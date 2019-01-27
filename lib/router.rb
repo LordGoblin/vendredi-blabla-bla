@@ -15,7 +15,6 @@ class Router
 			puts "4.quitter l'app"
 			puts "5.DevMode pour voir les variables (pense a faire un scraping avant sinon variable vide)"
 			params = gets.chomp.to_i
-
 			case params
 			when 1
 				puts "tu as choisi scraping"
