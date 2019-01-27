@@ -5,7 +5,7 @@ class Model
 		@array_departement = []
 		@array_numero_depart = []
 		@array_profil_mairie_https = []
-		@hachier_keydepart_valuenumero = {}
+		@hachier_keydeppart_valuenumero = {}
 		@hachier_invers_keynumero_valuedeppart = {}
 	end
 
