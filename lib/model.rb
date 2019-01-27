@@ -1,12 +1,11 @@
 class Model
-	attr_reader :array_departement, :array_numero_depart, :hachier_keydeppart_valuenumero, :hachier_invers_keynumero_valuedeppart, :array_mairie_pour_https, :array_profil_mairie_https
+	attr_reader :array_departement, :array_numero_depart, :hachier_keydeppart_valuenumero, :hachier_invers_keynumero_valuedeppart, :array_profil_mairie_https
 
 	def initialize
 		@array_departement = []
 		@array_numero_depart = []
-		@array_mairie_pour_https = []
 		@array_profil_mairie_https = []
-		@hachier_keydeppart_valuenumero = {}
+		@hachier_keydepart_valuenumero = {}
 		@hachier_invers_keynumero_valuedeppart = {}
 	end
 
@@ -24,9 +23,8 @@ class Model
 	def choix_num(num)
 		i = 0
 		page = Nokogiri::HTML(open("http://annuaire-des-mairies.com/" + @hachier_invers_keynumero_valuedeppart["#{num}"] + ".html"))
-		array_mairie_pour_https = page.xpath('//a[@class="lientxt"]')
-		array_mairie_pour_https.each do |a|
-			@array_profil_mairie_https[i] = "http://annuaire-des-mairies.com#{(@array_mairie_pour_https[i] = a['href'][1..-1])}"
+		page.xpath('//a[@class="lientxt"]').each do |a|
+			@array_profil_mairie_https[i] = "http://annuaire-des-mairies.com#{(a['href'][1..-1])}"
 			i = i + 1
 		end
 		return @array_profil_mairie_https
@@ -45,9 +43,6 @@ class Model
 			print "\n"
 		when 5
 			print @hachier_invers_keynumero_valuedeppart
-			print "\n"
-		when 6
-			print @array_mairie_pour_https
 			print "\n"
 		else
 			puts "nop"
