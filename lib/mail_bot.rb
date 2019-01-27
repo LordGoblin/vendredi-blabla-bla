@@ -54,9 +54,7 @@ def mail_spamming (sujet,contenu)
   arrmail = csv['mail']
 
   arrmail.each do |e|
-
   # Création du contenu du message
-
   msg = Mail.new
   msg.date = Time.now
   msg.subject = sujet
