@@ -11,8 +11,10 @@ class Controller
 	end
 
 	def scraping
+		#debut :
 		@array_profil_mairie_https = @model.choix_num(@view.depart(@model.choix_departement))
-		puts @array_profil_mairie_https
+		#fin xD: 
+		#puts @array_profil_mairie_https
 	end
 
 	def devmode
