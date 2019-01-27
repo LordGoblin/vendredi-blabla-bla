@@ -1,5 +1,6 @@
 require	'model.rb'
 require 'view.rb'
+require 'mail_bot.rb'
 
 class Controller
 	attr_reader :array_profil_mairie_https
@@ -8,12 +9,21 @@ class Controller
 		@view = View.new
 		@model = Model.new
 		@array_profil_mairie_https = []
+		@spam_service = MailBot.new
+	end
+
+	def spamming
+		puts "Quel est le sujet du mail ?"
+		sujet = gets.chomp
+		puts "Quel est le contenu du mail ?"
+		contenu = gets.chomp
+		@spam_service.mail_spamming(sujet,contenu)
 	end
 
 	def scraping
 		#debut :
 		@array_profil_mairie_https = @model.choix_num(@view.depart(@model.choix_departement))
-		#fin xD: 
+		#fin xD:
 		#puts @array_profil_mairie_https
 	end
 

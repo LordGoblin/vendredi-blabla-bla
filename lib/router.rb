@@ -23,6 +23,8 @@ class Router
 				puts "tu as choisi la save"
 			when 3
 				puts "tu as choisi envoi mail"
+				@controller.spamming
+				break
 			when 4
 				puts "a++"
 				break
